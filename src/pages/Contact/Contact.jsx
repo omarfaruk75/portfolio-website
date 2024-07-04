@@ -1,8 +1,28 @@
 import { CiLocationOn } from "react-icons/ci";
 import { FaEnvelope, FaPhone } from "react-icons/fa";
+import axios from 'axios';
+import toast from "react-hot-toast";
 
 
 const Contact = () => {
+    const handleSubmit = async event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const message = form.message.value;
+        const postMessage = { name, email, message }
+        console.log(postMessage);
+        try {
+            const { data } = await axios.post('/message', postMessage)
+            console.log(data);
+            toast.success('Review Successfully Added')
+
+        } catch (err) {
+            console.log(err)
+            toast.error('err:message')
+        }
+    }
     return (
         <div className="px-24 my-24">
 
@@ -21,18 +41,18 @@ const Contact = () => {
                     </p>
                 </div>
                 <div className="flex-1">
-                    <form action="" className="flex flex-col gap-y-4">
+                    <form onSubmit={handleSubmit} action="" className="flex flex-col gap-y-4">
                         <div className="flex flex-col justify-start gap-y-2 text-white">
                             <label htmlFor="">Full Name</label>
-                            <input type="text" className="py-2 px-6 rounded-sm" placeholder="Full Name" />
+                            <input type="text" name="name" className="py-2 text-black px-6 rounded-sm" placeholder="Full Name" />
                         </div>
                         <div className="flex flex-col justify-start gap-y-2 text-white">
                             <label htmlFor="" >Email</label>
-                            <input type="email" className="py-2 px-6 rounded-sm" placeholder="Write Your Email" />
+                            <input type="email" name="email" className="py-2  text-black px-6 rounded-sm" placeholder="Write Your Email" />
                         </div>
                         <div className="flex flex-col justify-start gap-y-2 text-white">
                             <label htmlFor="">Write your Message</label>
-                            <textarea name="" cols="5" rows="5" id="" className="rounded-sm"></textarea>
+                            <textarea cols="5" name="message" rows="5" id="" className="  text-black rounded-sm"></textarea>
                         </div>
                         <button type="submit" className="w-full bg-blue-300 py-2 rounded-sm text-white font-semibold">Submit</button>
                     </form>
