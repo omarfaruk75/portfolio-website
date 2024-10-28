@@ -64,8 +64,8 @@ const Navbar = () => {
                     </div>
                     <div className="navbar-end">
                         <a
-                            href="Resume.pdf"
-                            download="Resume.pdf"
+                            href="omar_faruk.pdf"
+                            download="omar_faruk.pdf"
                             className="text-white flex flex-row justify-center items-center gap-x-2"
                         >
                             Resume <FaDownload />
