@@ -14,7 +14,8 @@ const Contact = () => {
         const postMessage = { name, email, message }
         console.log(postMessage);
         try {
-            const { data } = await axios.post('/message', postMessage)
+            // const { data } = await axios.post('/message', postMessage)
+            const { data } = await axios.post('http://localhost:5000/message', postMessage)
             console.log(data);
             toast.success('Review Successfully Added')
 
@@ -34,14 +35,16 @@ const Contact = () => {
                         <CiLocationOn /> <span>Chattogram,Bangladesh</span>
                     </p>
                     <p className="flex flex-row  items-center gap-4">
-                        <FaPhone /> <span>+8801812956268</span>
+                        <FaPhone /> <span><a href="https://wa.me/8801812956268" target="_blank" rel="noopener noreferrer">+8801812956268</a></span>
                     </p>
                     <p className="flex flex-row  items-center gap-4">
-                        <FaEnvelope /> <span>farukomarcpa@gmail.com</span>
+                        <FaEnvelope /> <span><a href="https://mail.google.com/mail/?view=cm&fs=1&to=farukomarcpa@gmail.com" target="_blank" rel="noopener noreferrer">farukomarcpa@gmail.com</a></span>
+
+
                     </p>
                 </div>
                 <div className="flex-1">
-                    <form onSubmit={handleSubmit} action="" className="flex flex-col gap-y-4">
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-y-4">
                         <div className="flex flex-col justify-start gap-y-2 text-white">
                             <label htmlFor="">Full Name</label>
                             <input type="text" name="name" className="py-2 text-black px-6 rounded-sm" placeholder="Full Name" />

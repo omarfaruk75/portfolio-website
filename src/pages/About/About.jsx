@@ -14,7 +14,7 @@ const About = () => {
 
             <div className=" w-4/5 m-auto shadow-white text-white my-8">
                 <div className="flex flex-col gap-10 justify-between items-center md:pb-12">
-                    <p className=" w-3/5 text-center text-xl px-12 leading-10 flex flex-row justify-center items-center">
+                    <p className="w-full  md:w-3/5 text-center text-xl px-12 leading-10 flex flex-row justify-center items-center">
                         I am passionate about web development and have experience in HTML, CSS, JavaScript, React, MongoDB, and Tailwind CSS. I excel in creating dynamic web applications and seamless user experiences while staying updated with industry trends.
                     </p>
 
